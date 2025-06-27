@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Retro Car Ad Colors & Fonts */
+body {
+  background: linear-gradient(to right, #000000, #ff7451);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: #111;
+}
+
+.navbar {
+  background-color: #0017e6;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+section {
+  background: white;
+  padding: 30px;
+  border: 5px dashed #333;
+  box-shadow: 5px 5px 0 #000;
+  margin-bottom: 40px;
+}
+
+h1, h2 {
+  text-shadow: 2px 2px #0099ff;
+}
+
+.App {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+/* Header.css */
+.header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer a {
+  color: #00bfff;
+  text-decoration: none;
+}
