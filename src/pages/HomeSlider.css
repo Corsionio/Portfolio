@@ -1,0 +1,52 @@
+.slider-container {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+}
+
+
+.slider-track {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+  gap: 160px;
+  width: 100%;
+  height: 100%;
+}
+
+
+.slide {
+  width: 100%;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: #444;
+}
+
+.arrow.left {
+  left: -100px;
+}
+
+.arrow.right {
+  right: -100px;
+}
+
+.arrow-image {
+  width: 60px;
+  height: 60px;
+}
