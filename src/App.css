@@ -40,7 +40,7 @@ section {
   margin-bottom: 40px;
 }
 
-h1, h2 {
+h2 {
   text-shadow: 2px 2px #7abfff;
 }
 
@@ -59,7 +59,7 @@ h1, h2 {
 
 .header {
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); /* for Safari */
+  -webkit-backdrop-filter: blur(6px);
   background-color: rgba(255, 255, 255, 0.85);
   border-bottom:3px solid #000;
   width: 100vw;
@@ -81,7 +81,7 @@ h1, h2 {
 
 .footer {
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); /* for Safari */
+  -webkit-backdrop-filter: blur(6px);
   background-color: rgba(255, 255, 255, 0.85);
   border-top:3px solid #000;
   width: 100vw;
@@ -95,4 +95,26 @@ h1, h2 {
 .footer a {
   color: #00bfff;
   text-decoration: none;
+}
+
+.about-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.grad-image img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px; /* optional: makes corners round */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* optional: adds depth */
+}
+
+.head-image img {
+  width: 120px;   /* or any size you prefer */
+  margin-top: 50px;
+  height: auto;
+  border-radius: 10px; /* optional: makes corners round */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* optional: adds depth */
 }
