@@ -4,14 +4,14 @@ export default function Projects() {
       <h2>My Projects</h2>
       <ul>
         <li>
-          <strong>AI Code Quiz Generator</strong> – Django, OpenAI, SQLite3, Microsoft Azure, Python
+          <strong>AI Code Quiz Generator</strong> – Django, OpenAI, PostgreSQL, Microsoft Azure, Python
           <br />
           <a href="https://codequestions-h0bkfkbvckdwaxfv.eastus-01.azurewebsites.net/" target="_blank" rel="noopener noreferrer">
             Live Site
           </a>
         </li>
         <li>
-          <strong>Spotify Mood Board</strong> – Flask, Spotify API, SQLite3, Microsoft Azure, Python
+          <strong>Spotify Mood Board</strong> – Flask, Spotify API, Microsoft Azure, Python
           <br />
           <a href="https://spotifymoods.azurewebsites.net" target="_blank" rel="noopener noreferrer">
             Live Site
