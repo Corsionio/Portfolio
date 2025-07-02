@@ -55,11 +55,12 @@
 @media (max-width: 768px) {
   .slider-container {
     max-width: 100vw;
-    padding: 0 10px;
   }
 
-  .slide {
-    padding: 10px;
+  .slider-track {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    gap: 40px;
   }
 
   .arrow {
