@@ -60,7 +60,7 @@
   .slider-track {
     display: flex;
     transition: transform 0.7s ease-in-out;
-    gap: 50px;
+    gap: 45px;
   }
 
   .arrow {
@@ -76,7 +76,7 @@
   }
 
   .arrow.right {
-    maring-top: 30px;
+    margin-top: 30px;
     right: 25%;
   }
 }
