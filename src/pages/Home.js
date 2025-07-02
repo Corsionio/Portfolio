@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   const translateValue = isMobile
-    ? `-${currentIndex * (100 + (160 / 786) * 100)}%`
+    ? `-${currentIndex * 100}vw`
     : `-${currentIndex * (100 + (160 / 960) * 100)}%`;
 
   return (
