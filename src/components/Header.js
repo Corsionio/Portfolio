@@ -6,7 +6,8 @@ export default function Header() {
       <h1 className="logo">Corso Montuori</h1>
       <nav className="nav-links">
         <Link to="/">Home</Link> |{' '}
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">Contact</Link> |{' '}
+        <Link to="/learning">Currently Learning</Link>
       </nav>
     </header>
   );

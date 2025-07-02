@@ -8,9 +8,9 @@ import Skills from '../components/Skills';
 import './HomeSlider.css';
 
 const sections = [
-  { id: 0, component: <About />, label: "About Me" },
-  { id: 1, component: <Projects />, label: "Projects" },
-  { id: 2, component: <Skills />, label: "Technical Skills" },
+  { id: 0, Component: About, label: "About Me" },
+  { id: 1, Component: Projects, label: "Projects" },
+  { id: 2, Component: Skills, label: "Technical Skills" },
 ];
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
         >
           {sections.map((section) => (
             <div className="slide" key={section.id}>
-              {section.component}
+              {currentIndex === section.id && <section.Component isVisible={true} />}
             </div>
           ))}
         </div>
@@ -56,6 +56,14 @@ export default function Home() {
         <button className="arrow right" onClick={handleNext}>
           <img src="/images/rightArrow.png" alt="Next" className="arrow-image" />
         </button>
+      </div>
+      <div className="slide-dots">
+        {sections.map((section, index) => (
+          <span
+            key={section.id}
+            className={`dot ${currentIndex === index ? 'active' : ''}`}
+          />
+        ))}
       </div>
       <Footer />
     </>
