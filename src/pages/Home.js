@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import About from '../components/About';
@@ -15,6 +15,13 @@ const sections = [
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? sections.length - 1 : prev - 1));
@@ -23,6 +30,10 @@ export default function Home() {
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === sections.length - 1 ? 0 : prev + 1));
   };
+
+  const translateValue = isMobile
+    ? `-${currentIndex * (100 + (160/786) * 100)}vw`
+    : `-${currentIndex * (100 + (160 / 960) * 100)}%`;
 
   return (
     <>
@@ -33,7 +44,7 @@ export default function Home() {
         </button>
         <div
           className="slider-track"
-          style={{ transform: `translateX(-${currentIndex * (100 + (160 / 960) * 100)}%)` }}
+          style={{ transform: `translateX(${translateValue})` }}
         >
           {sections.map((section) => (
             <div className="slide" key={section.id}>
