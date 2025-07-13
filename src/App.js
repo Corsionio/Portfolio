@@ -15,7 +15,13 @@ function DiamondGrid() {
     const newDiamonds = [];
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        newDiamonds.push({ row, col, id: `${row}-${col}`, raised: false });
+        newDiamonds.push({
+          row,
+          col,
+          id: `${row}-${col}`,
+          raised: false,
+          ripple: false,
+        });
       }
     }
     setDiamonds(newDiamonds);
@@ -28,7 +34,7 @@ function DiamondGrid() {
 
       setDiamonds((prev) =>
         prev.map((d) => {
-          const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) + 3; // The + 3 helps tracking seem more fluid
+          const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 20;
           const y = d.row * diamondSpacing;
           const dx = x - mouseX;
           const dy = y - mouseY;
@@ -41,14 +47,56 @@ function DiamondGrid() {
       );
     };
 
+    const handleClick = (e) => {
+    const clickX = e.clientX;
+    const clickY = e.clientY;
+
+    setDiamonds((prev) =>
+      prev.map((d) => ({ ...d, ripple: false }))
+    );
+
+    diamonds.forEach((d) => {
+      const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 20;
+      const y = d.row * diamondSpacing;
+
+      const dx = x - clickX;
+      const dy = y - clickY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      const delay = distance * 0.3; // ripple speed
+
+      setTimeout(() => {
+        setDiamonds((prev) =>
+          prev.map((diamond) =>
+            diamond.id === d.id ? { ...diamond, ripple: true } : diamond
+          )
+        );
+
+        setTimeout(() => {
+          setDiamonds((prev) =>
+            prev.map((diamond) =>
+              diamond.id === d.id ? { ...diamond, ripple: false } : diamond
+            )
+          );
+        }, 250);
+      }, delay);
+    });
+  };
+
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [diamonds]);
+    window.addEventListener('click', handleClick);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('click', handleClick);
+    };
+  }, [diamonds, cols]);
 
   return (
     <div className="diamond-grid">
       {diamonds.map((d) => {
-        const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 30;
+        const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 20;
         const y = d.row * diamondSpacing;
         return (
           <div
@@ -56,7 +104,11 @@ function DiamondGrid() {
             className="diamond-wrapper"
             style={{ left: `${x}px`, top: `${y}px` }}
           >
-            <div className={`diamond ${d.raised ? 'raised' : ''}`} />
+            <div
+              className={`diamond ${
+                d.raised || d.ripple ? 'raised' : ''
+              }`}
+            />
           </div>
         );
       })}

@@ -63,6 +63,18 @@ export default function Projects({ isVisible }) {
             GitHub Repo
           </a>
         </motion.li>
+
+        <motion.li variants={itemVariants}>
+          <strong>Maze RPG Game</strong> – C++, Vectors, Complex Data Structures, ASCII Visualization
+          <br />
+          <a
+            href="https://github.com/malachidavey/RPG-Game"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Repo
+          </a>
+        </motion.li>
       </motion.ul>
     </motion.section>
   );

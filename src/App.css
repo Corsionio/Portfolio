@@ -40,10 +40,6 @@ section {
   margin-bottom: 40px;
 }
 
-h2 {
-  text-shadow: 1px 1px #7abfff;
-}
-
 .App {
   width: 100vw;
   min-height: 100vh;

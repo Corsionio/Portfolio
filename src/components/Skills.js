@@ -26,11 +26,11 @@ export default function Skills({ isVisible }) {
       <motion.h2 variants={itemVariants}>Technical Skills</motion.h2>
 
       <motion.p variants={itemVariants}>
-        <strong>Languages:</strong> Python, C/C++, SQL (mySQL, PostgreSQL), JavaScript/TypeScript, C#, Java, HTML/CSS, Ruby, <b><u>React</u></b>
+        <strong>Languages:</strong> Python, C/C++, SQL (mySQL, PostgreSQL), JavaScript/TypeScript, C#, Java, HTML/CSS, Ruby
       </motion.p>
 
       <motion.p variants={itemVariants}>
-        <strong>Frameworks:</strong> Django, Flask, FastAPI, .NET, Blazor, Spring
+        <strong>Frameworks:</strong> Django, Flask, FastAPI, .NET, Blazor, Spring, <b><u>React</u></b>
       </motion.p>
 
       <motion.p variants={itemVariants}>
