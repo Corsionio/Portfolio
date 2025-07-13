@@ -47,41 +47,55 @@ function DiamondGrid() {
       );
     };
 
-    const handleClick = (e) => {
+  const handleClick = (e) => {
     const clickX = e.clientX;
     const clickY = e.clientY;
 
-    setDiamonds((prev) =>
-      prev.map((d) => ({ ...d, ripple: false }))
-    );
+    const newDiamonds = [...diamonds];
+    const buckets = {};
 
-    diamonds.forEach((d) => {
+    // Group diamonds into distance bands (every 80px = 1 ripple layer)
+    newDiamonds.forEach((d) => {
       const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 20;
       const y = d.row * diamondSpacing;
 
       const dx = x - clickX;
       const dy = y - clickY;
       const distance = Math.sqrt(dx * dx + dy * dy);
+      const band = Math.floor(distance / 80); // band size = 80px
 
-      const delay = distance * 0.3; // ripple speed
+      if (!buckets[band]) buckets[band] = [];
+      buckets[band].push(d.id);
+    });
+
+    // Animate each band with delay
+    Object.keys(buckets).forEach((bandStr) => {
+      const band = parseInt(bandStr);
+      const delay = band * 60; // 60ms between rings
 
       setTimeout(() => {
         setDiamonds((prev) =>
-          prev.map((diamond) =>
-            diamond.id === d.id ? { ...diamond, ripple: true } : diamond
+          prev.map((d) =>
+            buckets[band].includes(d.id)
+              ? { ...d, ripple: true }
+              : d
           )
         );
 
+        // Turn off ripple after 250ms
         setTimeout(() => {
           setDiamonds((prev) =>
-            prev.map((diamond) =>
-              diamond.id === d.id ? { ...diamond, ripple: false } : diamond
+            prev.map((d) =>
+              buckets[band].includes(d.id)
+                ? { ...d, ripple: false }
+                : d
             )
           );
         }, 250);
       }, delay);
     });
   };
+
 
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -115,7 +129,6 @@ function DiamondGrid() {
     </div>
   );
 }
-
 
 
 

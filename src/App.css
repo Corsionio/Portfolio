@@ -38,6 +38,7 @@ section {
   border: 5px solid #505050;
   box-shadow: 5px 5px 0 #000;
   margin-bottom: 40px;
+  z-index: 2;
 }
 
 .App {
