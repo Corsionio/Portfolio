@@ -72,10 +72,6 @@ section {
   text-decoration: underline;
 }
 
-.nav-links a:hover {
-  text-decoration: dashed underline;
-}
-
 .footer {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);

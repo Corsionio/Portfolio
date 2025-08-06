@@ -11,6 +11,7 @@ function DiamondGrid() {
   const cols = Math.ceil(window.innerWidth / diamondSpacing) + 2;
   const rows = Math.ceil(window.innerHeight / diamondSpacing) + 2;
 
+  // General diamond creation/logic
   useEffect(() => {
     const newDiamonds = [];
     for (let row = 0; row < rows; row++) {
@@ -27,6 +28,7 @@ function DiamondGrid() {
     setDiamonds(newDiamonds);
   }, [cols, rows]);
 
+  // Mouse hover logic
   useEffect(() => {
     const handleMouseMove = (e) => {
       const mouseX = e.clientX;
@@ -62,7 +64,7 @@ function DiamondGrid() {
       const dx = x - clickX;
       const dy = y - clickY;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const band = Math.floor(distance / 80); // band size = 80px
+      const band = Math.floor(distance / 100); // band size = 80px
 
       if (!buckets[band]) buckets[band] = [];
       buckets[band].push(d.id);
