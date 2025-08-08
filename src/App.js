@@ -56,7 +56,7 @@ function DiamondGrid() {
     const newDiamonds = [...diamonds];
     const buckets = {};
 
-    // Group diamonds into distance bands (every 80px = 1 ripple layer)
+    // Group diamonds into distance bands (every 100px = 1 ripple layer)
     newDiamonds.forEach((d) => {
       const x = d.col * diamondSpacing + (d.row % 2 ? diamondSpacing / 2 : 0) - 20;
       const y = d.row * diamondSpacing;
@@ -64,7 +64,7 @@ function DiamondGrid() {
       const dx = x - clickX;
       const dy = y - clickY;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const band = Math.floor(distance / 100); // band size = 80px
+      const band = Math.floor(distance / 100); // band size = 100px
 
       if (!buckets[band]) buckets[band] = [];
       buckets[band].push(d.id);
