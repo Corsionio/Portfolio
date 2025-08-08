@@ -16,32 +16,37 @@ const sections = [
 
 const slideVariants = {
   enter: (direction) => ({
-    x: direction > 0 ? 300 : -300, // coming from right if next, left if prev
+    x: direction > 0 ? 200 : -200, // shorter distance to reduce lag
     opacity: 0
   }),
   center: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.6 }
+    transition: { duration: 0.25, ease: 'easeOut' }
   },
   exit: (direction) => ({
-    x: direction > 0 ? -300 : 300, // fly out the opposite way
+    x: direction > 0 ? -200 : 200,
     opacity: 0,
-    transition: { duration: 0.2 }
+    transition: { duration: 0.22, ease: 'easeIn' }
   })
 };
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false); // NEW
 
   const handlePrev = () => {
-    setDirection(-1); // moving left
+    if (isTransitioning) return; // prevent spam clicks
+    setIsTransitioning(true);
+    setDirection(-1);
     setCurrentIndex((prev) => (prev === 0 ? sections.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setDirection(1); // moving right
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setDirection(1);
     setCurrentIndex((prev) => (prev === sections.length - 1 ? 0 : prev + 1));
   };
 
@@ -49,12 +54,17 @@ export default function Home() {
     <>
       <Header />
       <div className="slider-container">
-        <button className="arrow left" onClick={handlePrev}>
+        <button className="arrow left" onClick={handlePrev} disabled={isTransitioning}>
           <img src="/images/leftArrow.png" alt="Previous" className="arrow-image" />
         </button>
 
         <div className="slider-track">
-          <AnimatePresence custom={direction} mode="wait" initial={false}>
+          <AnimatePresence
+            custom={direction}
+            mode="wait"
+            initial={false}
+            onExitComplete={() => setIsTransitioning(false)}
+          >
             <motion.div
               key={currentIndex}
               className="slide"
@@ -71,7 +81,8 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <button className="arrow right" onClick={handleNext}>
+
+        <button className="arrow right" onClick={handleNext} disabled={isTransitioning}>
           <img src="/images/rightArrow.png" alt="Next" className="arrow-image" />
         </button>
       </div>
