@@ -33,13 +33,13 @@ export default function Skills({ isVisible }) {
         <strong>Frameworks:</strong> Django, Flask, FastAPI, .NET, Blazor, Spring, <b><u>React</u></b>
       </motion.p>
 
-      <motion.p variants={itemVariants}>
+      <motion.p variants={itemVariants}> 
         <strong>Tools:</strong> Git, Github, Microsoft Azure, Docker, AWS, Google Cloud Platform, Unix, VS Code, 
         Visual Studio, pyCharm, Ubuntu, SSH, Linux, Machine Learning, Statistical Analysis, CI/CD, DevTools, DevOps
       </motion.p>
 
       <motion.p variants={itemVariants}>
-        <strong>Libraries:</strong> NumPy, pandas, pyTorch, OpenAI, Matplotlib, dotenv, json, C++ STL
+        <strong>Libraries/API:</strong> NumPy, pandas, pyTorch, OpenAI, Matplotlib, dotenv, json, C++ STL, googleAPI
       </motion.p>
     </motion.section>
   );
