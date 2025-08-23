@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
+import Certifications from '../components/Certifications';
+import Links from '../components/Links';
 
 import './HomeSlider.css';
 
@@ -12,6 +14,8 @@ const sections = [
   { id: 0, Component: About, label: "About Me" },
   { id: 1, Component: Projects, label: "Projects" },
   { id: 2, Component: Skills, label: "Technical Skills" },
+  { id: 3, Component: Certifications, label: "Certifications"},
+  { id: 4, Component: Links, label: "Links"},
 ];
 
 const slideVariants = {
