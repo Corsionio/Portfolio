@@ -132,8 +132,6 @@ function DiamondGrid() {
   );
 }
 
-
-
 function App() {
   return (
     <Router>

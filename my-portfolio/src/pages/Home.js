@@ -57,6 +57,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <div style={{ marginTop: '70px' }}></div>
       <div className="slider-container">
         <button className="arrow left" onClick={handlePrev} disabled={isTransitioning}>
           <img src="/images/leftArrow.png" alt="Previous" className="arrow-image" />

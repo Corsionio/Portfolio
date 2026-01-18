@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function ScrollingHeader() {
+  const text = "Corso Montuori's Portfolio";
+  const repeatedText = `${text} • `.repeat(20);
+  
   return (
-    <header className="header">
-      <h1 className="logo">Corso Montuori</h1>
-      <nav className="nav-links">
-        <Link to="/">Home</Link> |{' '}
-        <Link to="/learning">Currently Learning</Link> |{' '}
-        <Link to="/contact">Contact</Link>
-      </nav>
-    </header>
+    <div className="header">
+      <div className="scrolling-text-container">
+        <div className="scrolling-text">
+          {repeatedText}
+        </div>
+        <div className="scrolling-text" aria-hidden="true">
+          {repeatedText}
+        </div>
+      </div>
+    </div>
   );
 }
