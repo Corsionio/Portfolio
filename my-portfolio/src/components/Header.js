@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 export default function ScrollingHeader() {
   const text = "Corso Montuori's Portfolio";
   const repeatedText = `${text} • `.repeat(20);
