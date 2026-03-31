@@ -76,12 +76,14 @@
   border-radius: 50%;
   background-color: #bbb;
   transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .dot.active {
   background-color: #333;
 }
-
 
 @media (max-width: 768px) {
   .slider-container {

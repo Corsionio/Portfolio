@@ -81,7 +81,7 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: scroll 100s linear infinite, gradientShift 8s ease infinite;
+  animation: scroll 160s linear infinite, gradientShift 8s ease infinite;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
